@@ -42,6 +42,25 @@ public class Room {
         return (!isOccupied && !isDirty);
     }
 
+    public void checkIn(){
+       if(isAvailable()) {
+           isOccupied = true;
+           isDirty = true;
+       }
+    }
+
+    public void checkOut(){
+        isOccupied = false;
+        isDirty = true;
+
+    }
+
+    public void cleanRoom(){
+        if (isDirty){
+            isDirty = false;
+        }
+    }
+
     @Override
     public String toString() {
         return "Room{" +

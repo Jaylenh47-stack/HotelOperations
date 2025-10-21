@@ -68,6 +68,19 @@ public class Employee {
 
     }
 
+    public double punchIn(double time){
+        return time;
+    }
+
+    public double punchOut(double time){
+        double endTime = time;
+        double hoursWorkedToday = punchIn(time) - endTime;
+        return hoursWorkedToday += hoursWorked;
+    }
+
+
+
+
     @Override
     public String toString() {
         return "Employee{" +
