@@ -44,20 +44,22 @@ public class Room {
 
     public void checkIn(){
        if(isAvailable()) {
-           isOccupied = true;
-           isDirty = true;
+           this.isOccupied = true;
+           this.isDirty = true;
+       }
+       else{
+           System.out.println("This room is already occupied");
        }
     }
 
     public void checkOut(){
-        isOccupied = false;
-        isDirty = true;
-
+        this.isOccupied = false;
+        this.isDirty = true;
     }
 
     public void cleanRoom(){
-        if (isDirty){
-            isDirty = false;
+        if (!isOccupied){
+            this.isDirty = false;
         }
     }
 

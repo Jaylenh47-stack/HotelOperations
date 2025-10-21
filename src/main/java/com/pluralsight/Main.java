@@ -20,6 +20,22 @@ public class Main {
         for(Room r : rooms) {
             System.out.println(r);
         }
+
+        System.out.println("Two rooms checked in");
+        r101.checkIn();
+        r102.checkIn();
+            for(Room r : rooms) {
+                System.out.println(r);
+            }
+
+        System.out.println("One room checked out");
+        r102.checkOut();
+        for(Room r : rooms) {
+            System.out.println(r);
+        }
+
+
+
         ArrayList<Reservation> reservations= new ArrayList<>();
         Reservation res1 = new Reservation("king", 2,false);
         Reservation res2 = new Reservation("double", 1,false);
@@ -46,6 +62,17 @@ public class Main {
         employees.add(b);
         employees.add(c);
         employees.add(d);
+
+        for (Employee e : employees){
+            System.out.println(e);
+        }
+
+
+        a.punchIn(8);
+        a.punchOut(12);
+
+        a.punchIn(13);
+        a.punchOut(17);
 
         for (Employee e : employees){
             System.out.println(e);

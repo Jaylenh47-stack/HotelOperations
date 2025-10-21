@@ -1,13 +1,15 @@
 package com.pluralsight;
 
+import java.time.LocalDateTime;
+
 public class Employee {
     private int employeeId;
     private String name;
     private String department;
     private float payRate;
-    private int hoursWorked;
+    private float hoursWorked;
 
-    public Employee(int employeeId, String name, String department, float payRate, int hoursWorked) {
+    public Employee(int employeeId, String name, String department, float payRate, float hoursWorked) {
         this.employeeId = employeeId;
         this.name = name;
         this.department = department;
@@ -47,7 +49,7 @@ public class Employee {
         this.payRate = payRate;
     }
 
-    public int getHoursWorked() {
+    public float getHoursWorked() {
         return hoursWorked;
     }
 
@@ -55,11 +57,11 @@ public class Employee {
         this.hoursWorked = hoursWorked;
     }
 
-    public int getRegularHours(){
+    public float getRegularHours(){
         return (hoursWorked > 40) ? 40 : hoursWorked;
     }
 
-    public int getOvertimeHours(){
+    public float getOvertimeHours(){
         return (hoursWorked > 40) ? hoursWorked - 40 : 0;
     }
 
@@ -68,14 +70,23 @@ public class Employee {
 
     }
 
-    public double punchIn(double time){
-        return time;
+    private double punchInTime = 0;
+
+    public void punchIn(double time){
+        this.punchInTime = time;
+        //return time;
+    }
+    
+
+    public void punchOut(double time){
+//        double elapsedTime = time - this.punchInTime;
+//        this.hoursWorked += elapsedTime;
+
+      this.hoursWorked += (float) (time - this.punchInTime);
     }
 
-    public double punchOut(double time){
-        double endTime = time;
-        double hoursWorkedToday = punchIn(time) - endTime;
-        return hoursWorkedToday += hoursWorked;
+    public void punchTimeCard(double checkInTime, double checkOutTime){
+        this.hoursWorked += (float) (checkOutTime - checkInTime);
     }
 
 
