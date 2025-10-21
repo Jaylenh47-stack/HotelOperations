@@ -78,8 +78,29 @@ public class Main {
             System.out.println(e);
         }
 
+    ArrayList<Hotel> hotels = new ArrayList<>();
 
-}
+        Hotel h1 = new Hotel("Hilton", 8, 25);
+        Hotel h2 = new Hotel("Days Inn", 5, 20);
+
+        hotels.add(h1);
+        hotels.add(h2);
+
+        System.out.println("Hotels list:");
+        for (Hotel h : hotels){
+            System.out.println(h);
+        }
+
+        System.out.println("Hotels after bookRoom");
+        h1.bookRoom(3,false);
+        h2.bookRoom(2, true);
+
+
+        for (Hotel h : hotels){
+            System.out.println(h);
+        }
+
+    }
 
 
 

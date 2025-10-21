@@ -1,6 +1,8 @@
 package com.pluralsight;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 public class Employee {
     private int employeeId;
@@ -71,12 +73,33 @@ public class Employee {
     }
 
     private double punchInTime = 0;
+    private LocalDateTime currentTime = LocalDateTime.now();
+
 
     public void punchIn(double time){
         this.punchInTime = time;
         //return time;
     }
-    
+    public void punchIn(){
+//        LocalTime lt = LocalTime.now();
+//        int hours = lt.getHour();
+//        int minutes = lt.getMinute();
+//        double timeAsDouble = hours + (minutes/60);
+//
+//        this.punchInTime = timeAsDouble;
+
+        LocalTime lt = LocalTime.now();
+        this.punchInTime = lt.getHour() + ((double) lt.getMinute() / 60);
+
+    }
+
+    public void punchOut(){
+       LocalTime lt = LocalTime.now();
+
+       double punchOutAsDouble = (lt.getHour() + (double) lt.getMinute() / 60);
+       this.hoursWorked += (float) (punchOutAsDouble - this.punchInTime);
+    }
+
 
     public void punchOut(double time){
 //        double elapsedTime = time - this.punchInTime;
