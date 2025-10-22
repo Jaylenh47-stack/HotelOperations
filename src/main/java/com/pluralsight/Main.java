@@ -24,6 +24,8 @@ public class Main {
         System.out.println("Two rooms checked in");
         r101.checkIn();
         r102.checkIn();
+        System.out.println("2nd check in");
+        r102.checkIn();
             for(Room r : rooms) {
                 System.out.println(r);
             }

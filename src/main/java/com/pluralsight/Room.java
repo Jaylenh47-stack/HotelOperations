@@ -42,19 +42,29 @@ public class Room {
         return (!isOccupied && !isDirty);
     }
 
-    public void checkIn(){
+    public boolean checkIn(){
        if(isAvailable()) {
            this.isOccupied = true;
            this.isDirty = true;
+           return true;
        }
        else{
            System.out.println("This room is already occupied");
+           return false;
        }
     }
 
-    public void checkOut(){
-        this.isOccupied = false;
-        this.isDirty = true;
+    public boolean checkOut(){
+        if(!isAvailable()) {
+            this.isOccupied = false;
+            this.isDirty = true;
+            return true;
+        }
+        else{
+            System.out.println("Room is already vacant");
+            return false;
+        }
+
     }
 
     public void cleanRoom(){
